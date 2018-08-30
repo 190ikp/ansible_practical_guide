@@ -30,7 +30,7 @@
     - name: Build Dockerfile
       docker_image:
         docker_host: "{{ item }}"
-        path: "{{ tmp_dir }}/stable/jessie"
+        path: "{{ tmp_dir }}/stable/stretch"
         name: nginxinc/docker-nginx
         tag: v1
       with_items: "{{ docker_hosts }}"
@@ -56,7 +56,6 @@
         purge_networks: yes
         ports:
           - "8080:80"
-          - "8443:443"
       with_items: "{{ docker_hosts }}"
 
     - name: Run ansible docker container

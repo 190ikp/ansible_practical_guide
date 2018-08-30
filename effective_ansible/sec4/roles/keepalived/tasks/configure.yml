@@ -29,7 +29,6 @@
   systemd:
     name: "{{ item }}"
     state: restarted
-    sleep: 5
     enabled: yes
   with_items:
     - keepalived
