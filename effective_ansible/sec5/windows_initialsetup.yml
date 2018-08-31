@@ -74,6 +74,15 @@
 #        path: "{{ win_shared_folder }}\\ChromeStandaloneSetup64.exe"
 #        Product_Id: "{{ item.id }}"
 #
-    - name: Setup hostname and Reboot
-      raw: Rename-Computer -NewName "{{ inventory_hostname }}" -Force -Restart
-      when: ansible_hostname != inventory_hostname|upper
+    - name: Setup hostname
+      win_hostname:
+        name: "{{ inventory_hostname }}"
+      register: reboot_status
+
+    - name: Reboot
+      win_reboot:
+      when: reboot_status.reboot_required
+
+#    - name: Setup hostname and Reboot
+#      raw: Rename-Computer -NewName "{{ inventory_hostname }}" -Force -Restart
+#      when: ansible_hostname != inventory_hostname|upper
