@@ -9,7 +9,9 @@
   register: "wordpress_salt"
   run_once: true
 
-- block:
+- name: configure / Prepare WordPress database
+  block:
+
   - name: configure / Create WordPress database
     mysql_db:
       login_password: "{{ mariadb_root_pass }}"
