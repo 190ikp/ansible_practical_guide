@@ -18,7 +18,7 @@
 - block:
 
   - name: configure / Bootstrap first MariaDB Galera Cluster node
-    command: service mysql bootstrap
+    command: galera_new_cluster
     args:
       creates: "/var/lib/mysql/{{ ansible_host }}.pid"
 

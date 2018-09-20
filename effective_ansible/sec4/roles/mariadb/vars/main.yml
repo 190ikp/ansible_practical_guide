@@ -6,7 +6,7 @@ mariadb_rsync_port: 4444
 mariadb_nodesync_port: 4567
 mariadb_snapshotstate_port: 4568
 
-mariadb_release: 10.0
+mariadb_release: 10.2.11
 mariadb_sst_user: galera
 mariadb_sst_pass: galera
 mariadb_root_pass: ansible
@@ -18,7 +18,7 @@ mariadb_firewalld_port:
   - "{{ mariadb_snapshotstate_port }}/tcp"
 
 mariadb_packages:
-  - MariaDB-Galera-server
+  - MariaDB-server
   - MariaDB-client
   - galera
   - rsync
