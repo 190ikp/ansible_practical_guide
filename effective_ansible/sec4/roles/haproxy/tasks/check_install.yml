@@ -7,7 +7,7 @@
     permanent: yes
     immediate: yes
     state: enabled
-  with_items: "{{ haproxy_firewalld_port }}"
+  loop: "{{ haproxy_firewalld_port }}"
 
 - name: check_install / Ensure binding to non-up interfaces
   sysctl:
