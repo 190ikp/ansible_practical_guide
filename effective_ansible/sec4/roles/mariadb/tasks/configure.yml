@@ -15,7 +15,8 @@
     name: mysql
     state: stopped
 
-- block:
+- name: configure / Start MariaDB Galera Master node
+  block:
 
   - name: configure / Bootstrap first MariaDB Galera Cluster node
     command: galera_new_cluster
