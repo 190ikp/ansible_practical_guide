@@ -19,9 +19,9 @@
   when: ansible_os_family == 'Debian'
 
 - name: network / main / Setup the ethernet device
-  include: roles/network/tasks/ether.yml
+  include_tasks: roles/network/tasks/ether.yml
   when: network_ether_interfaces is defined
 
 - name: network / main / Setup the bond device
-  include: roles/network/tasks/bond.yml
+  include_tasks: roles/network/tasks/bond.yml
   when: network_bond_interfaces is defined
