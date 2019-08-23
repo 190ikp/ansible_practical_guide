@@ -1,6 +1,12 @@
 ---
 # tasks file for ./roles/haproxy
 
+- name: configure / Start firewalld
+  systemd:
+    name: "firewalld"
+    state: restarted
+    enabled: yes
+
 - name: check_install / Allow ports for firewalld
   firewalld:
     port: "{{ item }}"
@@ -13,6 +19,6 @@
   sysctl:
     state: present
     name: 'net.ipv4.ip_nonlocal_bind'
-    value: 1
+    value: '1'
     sysctl_set: yes
     reload: yes

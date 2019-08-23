@@ -12,7 +12,7 @@
 
 - name: install / Install required packages
   yum:
-    name: "{{ item }}"
+    name: "{{ mariadb_packages }}"
     state: present
     enablerepo: mariadb
   with_items: "{{ mariadb_packages }}"

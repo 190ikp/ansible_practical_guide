@@ -3,6 +3,6 @@
 
 - name: install / Install required packages
   yum:
-    name: "{{ item }}"
+    name: "{{ nginx_packages }}"
     state: present
   with_items: "{{ nginx_packages }}"
