@@ -2,4 +2,4 @@
 # vars file for ./roles/packages
 
 required_packages:
- - "build-essential"
+  - "build-essential"
