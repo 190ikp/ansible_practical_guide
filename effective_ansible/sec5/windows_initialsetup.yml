@@ -43,14 +43,14 @@
    # http://www.atmarkit.co.jp/ait/articles/1501/16/news085.html
     - name: Setup registory key
       win_regedit:
-        key: "{{ item.key }}"
-        value: "{{ item.value }}"
+        path: "{{ item.path }}"
+        name: "{{ item.name }}"
         data: "{{ item.data }}"
         datatype: "{{ item.datatype|default('dword') }}"
       with_items:
-        - { key: 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings', value: ProxyServer, data: "16.153.99.11:8080", datatype: string }
-        - { key: 'HKCU:\SOFTWARE\Microsoft\ServerManager', value: DoNotOpenServerManagerAtLogon, data: 1 }
-        - { key: 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server', value: fDenyTSConnections, data: 0 }
+        - { path: 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings', name: ProxyServer, data: "proxy.example.local:8080", datatype: string }
+        - { path: 'HKCU:\SOFTWARE\Microsoft\ServerManager', name: DoNotOpenServerManagerAtLogon, data: 1 }
+        - { path: 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server', name: fDenyTSConnections, data: 0 }
 
     - name: Install Telnet Client
       win_feature:
@@ -60,20 +60,13 @@
 
     - name: Install required packages
       win_chocolatey:
-        name: "{{ item }}"
-      with_items: "{{ required_packages }}"
+        name: "{{ required_packages }}"
 
-#    - name: windows / configure / Download required packages
-#      win_copy:
-#        src: "ChromeStandaloneSetup64.exe"
-#        dest: "{{ win_shared_folder }}\\ChromeStandaloneSetup64.exe"
-#
-#    - name: windows / configure / Install required packages
-#      win_package:
-#        name: "Google Chrome"
-#        path: "{{ win_shared_folder }}\\ChromeStandaloneSetup64.exe"
-#        Product_Id: "{{ item.id }}"
-#
-    - name: Setup hostname and Reboot
-      raw: Rename-Computer -NewName "{{ inventory_hostname }}" -Force -Restart
-      when: ansible_hostname != inventory_hostname|upper
+    - name: Setup hostname
+      win_hostname:
+        name: "{{ inventory_hostname }}"
+      register: hostname_result
+
+    - name: Reboot
+      win_reboot:
+      when: hostname_result.reboot_required
