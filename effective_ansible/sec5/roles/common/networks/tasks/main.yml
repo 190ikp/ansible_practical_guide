@@ -47,6 +47,7 @@
   nmcli:
     type: bond-slave
     conn_name: "{{ item.conn_name }}"
+    ifname: "{{ item.ifname }}"
     master: "{{ item.master }}"
     state: present
   loop: "{{ network_bond_slave }}"
