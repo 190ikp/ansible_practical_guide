@@ -1,12 +1,6 @@
 ---
 # tasks file for ./roles/keepalived
 
-- name: configure / Start firewalld
-  systemd:
-    name: "firewalld"
-    state: restarted
-    enabled: yes
-
 - name: check_install / Allow VRRP for firewalld
   firewalld:
     zone: public

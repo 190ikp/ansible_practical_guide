@@ -28,3 +28,9 @@
     name: epel-release
     state: latest
     update_cache: yes
+
+- name: configure / Start firewalld
+  systemd:
+    name: "firewalld"
+    state: restarted
+    enabled: yes

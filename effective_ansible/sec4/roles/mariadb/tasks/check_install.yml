@@ -1,12 +1,6 @@
 ---
 # tasks file for ./roles/mariadb
 
-- name: configure / Start firewalld
-  systemd:
-    name: "firewalld"
-    state: restarted
-    enabled: yes
-
 - name: check_install / Allow ports for firewalld
   firewalld:
     port: "{{ item }}"
