@@ -6,14 +6,14 @@
     state: permissive
   when : ansible_selinux.config_mode == 'enforcing'
 
-- name: configure / Desable ipv6 interface
+- name: configure / Disable ipv6 interface
   sysctl:
     state: present
     name: "{{ item }}"
-    value: 1
+    value: '1'
     sysctl_set: yes
     reload: yes
-  with_items:
+  loop:
     - net.ipv6.conf.all.disable_ipv6
     - net.ipv6.conf.default.disable_ipv6
 

@@ -9,7 +9,6 @@
 
 - name: install / Install required packages
   yum:
-    name: "{{ item }}"
+    name: "{{ php_packages }}"
     state: present
     enablerepo: remi-php56
-  with_items: "{{ php_packages }}"

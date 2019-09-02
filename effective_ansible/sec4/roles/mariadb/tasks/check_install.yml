@@ -7,7 +7,7 @@
     permanent: yes
     immediate: yes
     state: enabled
-  with_items: "{{ mariadb_firewalld_port }}"
+  loop: "{{ mariadb_firewalld_port }}"
 
 - name: check_install / Remove current packages
   yum:

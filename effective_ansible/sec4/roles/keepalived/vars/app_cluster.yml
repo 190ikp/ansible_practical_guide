@@ -4,5 +4,5 @@
 keepalived_vip_interfaces:
   - { address: "{{ hostvars.app_v1e.ansible_host }}", device: 'ens192' }
   
-keepalived_target: "{{ groups['apps'] }}"
+keepalived_target: "{{ groups['lbs_ext'] }}"
 keepalived_offset: 50

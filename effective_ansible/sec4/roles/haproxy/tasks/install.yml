@@ -3,6 +3,5 @@
 
 - name: install / Install required packages
   yum:
-    name: "{{ item }}"
+    name: "{{ haproxy_packages }}"
     state: latest
-  with_items: "{{ haproxy_packages }}"

@@ -7,4 +7,4 @@
     permanent: yes
     immediate: yes
     state: enabled
-  with_items: "{{ nginx_firewalld_port }}"
+  loop: "{{ nginx_firewalld_port }}"

@@ -30,7 +30,7 @@
     name: "{{ item }}"
     state: restarted
     enabled: yes
-  with_items:
+  loop:
     - keepalived
     - rsyslog
 
@@ -40,5 +40,5 @@
     host: "{{ item.address }}"
     delay: 5
     timeout: 60
-  with_items: "{{ keepalived_vip_interfaces }}"
+  loop: "{{ keepalived_vip_interfaces }}"
   run_once: True

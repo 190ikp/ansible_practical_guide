@@ -15,7 +15,8 @@
     name: mysql
     state: stopped
 
-- block:
+- name: configure / Start MariaDB Galera Master node
+  block:
 
   - name: configure / Bootstrap first MariaDB Galera Cluster node
     command: galera_new_cluster
@@ -24,7 +25,7 @@
 
   - name: configure / Wait for bootstrapping first MariaDB
     wait_for:
-      host: "{{ ansible_ens160.ipv4.address }}"
+      host: "{{ ansible_default_ipv4.address }}"
       port: 3306
       delay: 5
       timeout: 60
@@ -47,7 +48,7 @@
       login_password: "{{ mariadb_root_pass }}"
       name: "{{ mariadb_sst_user }}"
       password: "{{ mariadb_sst_pass }}"
-      host: "{{ ansible_ens160.ipv4.network }}/{{ ansible_ens160.ipv4.netmask }}"
+      host: "{{ ansible_default_ipv4.network }}/{{ ansible_default_ipv4.netmask }}"
       priv: "*.*:RELOAD,LOCK TABLES,REPLICATION CLIENT"
       append_privs: yes
 
@@ -60,7 +61,7 @@
 
 - name: configure / Wait for starting MariaDB Galera Cluster node
   wait_for:
-    host: "{{ ansible_ens160.ipv4.address }}"
+    host: "{{ ansible_default_ipv4.address }}"
     port: 3306
     delay: 5
     timeout: 60
