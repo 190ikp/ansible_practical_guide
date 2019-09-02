@@ -6,7 +6,7 @@
     state: permissive
   when : ansible_selinux.config_mode == 'enforcing'
 
-- name: configure / Desable ipv6 interface
+- name: configure / Disable ipv6 interface
   sysctl:
     state: present
     name: "{{ item }}"
