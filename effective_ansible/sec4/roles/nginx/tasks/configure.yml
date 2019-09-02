@@ -25,7 +25,7 @@
 
 - name: configure / Wait for nginx restart
   wait_for:
-    host: "{{ ansible_ens160.ipv4.address }}"
+    host: "{{ ansible_default_ipv4.address }}"
     port: "{{ nginx_service_port }}"
     delay: 3
     timeout: 60

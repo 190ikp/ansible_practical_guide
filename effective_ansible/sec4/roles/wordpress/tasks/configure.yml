@@ -23,7 +23,7 @@
       login_password: "{{ mariadb_root_pass }}"
       name: "{{ wordpress_db_user }}"
       password: "{{ wordpress_db_password }}"
-      host: "{{ ansible_ens160.ipv4.network }}/{{ ansible_ens160.ipv4.netmask }}"
+      host: "{{ ansible_default_ipv4.network }}/{{ ansible_default_ipv4.netmask }}"
       priv: "{{ wordpress_db_name }}.*:ALL"
       state: present
 

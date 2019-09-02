@@ -1,5 +1,5 @@
 server {
-        listen       {{ ansible_ens160.ipv4.address }}:{{ nginx_service_port }};
+        listen       {{ ansible_default_ipv4.address }}:{{ nginx_service_port }};
         root {{ wordpress_doc_root }};
  
 	# Deny access to any files with a .php extension in the uploads directory
