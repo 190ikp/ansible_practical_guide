@@ -41,7 +41,7 @@
 
    # https://support.microsoft.com/ja-jp/kb/182569
    # http://www.atmarkit.co.jp/ait/articles/1501/16/news085.html
-    - name: Setup registory key
+    - name: Setup registry key
       win_regedit:
         path: "{{ item.path }}"
         name: "{{ item.name }}"
