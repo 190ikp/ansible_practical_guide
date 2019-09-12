@@ -1,6 +1,6 @@
 ---
 # tasks file for ./roles/packages
-- name: main / Add the OS specific varibles
+- name: main / Add the OS specific variables
   include_vars: "{{ ansible_os_family }}.yml"
 
 - name: main / Update yum packages
