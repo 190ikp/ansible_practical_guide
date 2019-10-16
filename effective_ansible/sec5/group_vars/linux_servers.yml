@@ -10,5 +10,5 @@ network_ethernet:
 network_bond:
     - {conn_name: 'bond0', ip4: "{{ external_ip }}", gw4: "{{ external_gw }}"}
 network_bond_slave:
-    - {conn_name: 'ens224', master: 'bond0'}
-    - {conn_name: 'ens256', master: 'bond0'}
+    - {conn_name: 'slave-ens224', ifname: 'ens224', master: 'bond0'}
+    - {conn_name: 'slave-ens256', ifname: 'ens256', master: 'bond0'}

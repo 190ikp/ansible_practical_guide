@@ -7,5 +7,5 @@
 # localectl list-keymaps
 # 
 locale_timezone: "UTC"
-locale_locale: "ja_JP.utf8"
+locale_locale: "en_US.UTF-8"
 locale_keymap: "us"
