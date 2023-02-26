@@ -1,0 +1,10 @@
+{
+  "ansible.ansible.path": "$(pwd)/.venv/bin/ansible",
+  "ansible.python.interpreterPath": "$(pwd)/.venv/bin/python",
+  "ansible.validation.lint.path": "$(pwd)/.venv/bin/ansible-lint",
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/.venv/**": true
+  }
+}

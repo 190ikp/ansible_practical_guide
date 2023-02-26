@@ -18,7 +18,7 @@ http://amzn.asia/eOgq5IR
 http://qiita.com/spchildren/items/58550d9b8bea047d2ab8
 
 ## Environment
-Ansible version 2.2  
+Ansible version 2.13.7  
 CentOS 7.2  
 
 ## Authors

@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+ansible = "==6.4.0"
+ansible-lint = "==6.5.2"
+jmespath = "*"
+netaddr = "*"
+"ruamel.yaml" = "*"
+"ruamel.yaml.clib" = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"
